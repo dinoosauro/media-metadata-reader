@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="./manifest.json">
+  <meta name="description"
+    content="Read all the metadata of audio and video files, directly from your browser. No file upload required.">
+  <title>Media Metadata Reader</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    window.version = "1.0.0";
+    (async () => {
+      const result = await navigator.serviceWorker.register('./service-worker.js', { scope: location.href.substring(0, location.href.lastIndexOf("/") + 1) });
+      if (navigator.onLine) await result.update();
+    })();
+    fetch("./updatecode", { cache: "no-store" }).then((res) => res.text().then((text) => { if (text.replace("\n", "") !== window.version) if (confirm(`There's a new version of Media Metadata Read. Do you want to update? [${window.version} --> ${text.replace("\n", "")}]`)) { caches.delete("mediametadataread-cache"); location.reload(true); } }).catch((e) => { console.error(e) })).catch((e) => console.error(e)); // Check if the application code is the same as the current application version and, if not, ask the user to update
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

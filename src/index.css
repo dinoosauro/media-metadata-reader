@@ -1,0 +1,193 @@
+:root {
+  --background-dark: #191919;
+  --text-dark: #f2f2f2;
+  --font: "Work Sans", sans-serif;
+  --card-dark: #313131;
+  --input-dark: #515151;
+  --card-light: #cecece;
+  --input-light: #b1b0b0;
+  --text-light: #212121;
+  --background-light: #f2f2f2;
+  --accent-dark: #877a46;
+  --accent-light: #d7c583;
+  --hover-brightness-dark: 130%;
+  --active-brightness-dark: 150%;
+  --hover-brightness-light: 85%;
+  --active-brightness-light: 75%;
+  --resize-table: unset;
+  --overflow-table: unset;
+  --suggested-flex: 1 0 600px;
+}
+
+body {
+  padding: 10px;
+  font-family: var(--font);
+  background-color: var(--background);
+  color: var(--text);
+  --background: var(--background-dark);
+  --text: var(--text-dark);
+  --input: var(--input-dark);
+  --accent: var(--accent-dark);
+  --card: var(--card-dark);
+  --hover-brightness: var(--hover-brightness-dark);
+  --active-brightness: var(--active-brightness-dark);
+}
+
+.card {
+  padding: 10px;
+  background-color: var(--card);
+  border-radius: 8px;
+  max-width: 100%;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+table tr>* {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+table tr {
+  border-radius: 8px;
+}
+table th {
+  background-color: var(--card);
+}
+
+td {
+  text-align: center;
+  white-space: pre-line;
+  overflow: var(--overflow-table);
+  resize: var(--resize-table);
+}
+
+a {
+  color: var(--text);
+}
+
+code {
+  backdrop-filter: brightness(120%);
+  background-color: var(--accent);
+  padding: 10px;
+  border-radius: 12px;
+  margin: 10px 0px;
+}
+.secondCard {
+  background-color: var(--input);
+}
+
+button, select {
+  background-color: var(--accent);
+  color: var(--text);
+  width: 100%;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  padding: 10px;
+  border: 1px solid var(--text);
+  border-radius: 12px;
+  transition: filter 0.2s ease-in-out;
+  font-family: var(--font);
+}
+
+select {
+  width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(var(--hover-brightness));
+}
+button:active {
+  filter: brightness(var(--active-brightness));
+}
+
+.flex {
+  display: flex;
+}
+.hcenter {
+  align-items: center;
+}
+.gap {
+  gap: 10px;
+}
+
+.mainFlex {
+  flex-wrap: wrap;
+}
+.mainFlex > * {
+  flex: var(--suggested-flex);
+}
+
+a {
+  text-decoration: underline;
+}
+
+td {
+  vertical-align: baseline;
+}
+
+input[type=checkbox] {
+  appearance: none;
+  width: 60px;
+  min-width: 60px;
+  height: 20px;
+  border: 1px solid var(--text);
+  border-radius: 12px;
+  position: relative;
+  background-color: var(--input);
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type=checkbox]::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: var(--text);
+  width: 14px;
+  height: 14px;
+  left: 2px;
+  top: 2px;
+  transition: left 0.2s ease-in-out
+}
+
+input[type=checkbox]:checked {
+  background-color: var(--accent);
+}
+
+input[type=checkbox]:checked::before {
+  left: 42px;
+}
+
+input[type=checkbox]:hover {
+  cursor: pointer;
+}
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px) brightness(40%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.wcenter {
+  justify-content: center;
+}
+.dialog > div {
+  width: 70vw;
+  height: 70vh;
+  border-radius: 12px;
+  background-color: var(--card);
+  padding: 10px;
+  overflow: auto;
+}
