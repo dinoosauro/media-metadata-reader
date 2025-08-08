@@ -1,4 +1,4 @@
-# media-metadata-reader
+# media-metadata-reader
 
 A website that shows all the metadata of audio and video files. No upload required – everything is elaborated in your browser.
 
